@@ -1,0 +1,65 @@
+<!--
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>musica</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">musica</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>
+-->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Reproductor de Audio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let cancion of playlist; let i = index">
+      <ion-label>{{ cancion.title }}</ion-label>
+      <ion-button (click)="reproducirCancion(i)">Reproducir</ion-button>
+    </ion-item>
+  </ion-list>
+
+  
+
+  
+
+  
+
+  
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+
+    <div class="audio-info">
+      <div class="nombre-audio">{{ playlist[currentIndex].title }}</div>
+      <!--<div class="tiempo-transcurrido">{{ tiempoTranscurrido }}</div>-->
+    </div>
+
+    <ion-range min="0" max="100" [(ngModel)]="progress" (ionChange)="cambiarProgreso()">
+    <ion-label slot="start">{{ tiempoTranscurrido }}</ion-label>
+    <ion-label slot="end">{{ duracionTotal }}</ion-label>
+  </ion-range>
+
+
+    <ion-buttons>
+      <ion-button (click)="anteriorCancion()"><ion-icon name="play-skip-back"></ion-icon></ion-button>
+      <ion-button (click)="pausarCancion()" *ngIf="isPlaying"><ion-icon name="pause"></ion-icon></ion-button>
+      <ion-button (click)="continuarCancion()" *ngIf="!isPlaying"><ion-icon name="play-circle"></ion-icon></ion-button>
+      <ion-button (click)="siguienteCancion()"><ion-icon name="play-skip-forward"></ion-icon></ion-button>
+      <ion-button (click)="reiniciarCancion()"><ion-icon name="refresh-circle"></ion-icon></ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-footer>

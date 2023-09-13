@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>jsonapi</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card *ngFor="let item of jsonData.results">
+    
+
+    <ion-title>
+      {{item.name}}
+    </ion-title>
+    <ion-card-subtitle>
+      {{item.url}}
+    </ion-card-subtitle>
+
+  </ion-card>
+
+  <ion-card>
+    <ion-title>Hola</ion-title>
+  </ion-card>
+
+
+</ion-content>
